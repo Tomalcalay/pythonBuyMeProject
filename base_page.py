@@ -29,7 +29,6 @@ class buyme_site:
         self.driver.set_page_load_timeout(10)
         self.driver.implicitly_wait(10)
         self.driver.find_element(By.XPATH, '//span[@title="סכום"]').click()
-        time.sleep(1)
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.ID, 'ember1075'))).click()
         self.driver.find_element(By.XPATH, '//span[@title="אזור"]').click()
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.ID, 'ember1110'))).click()
