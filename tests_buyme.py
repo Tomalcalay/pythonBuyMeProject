@@ -1,7 +1,7 @@
 from allure_commons.types import AttachmentType
 import unittest
 from selenium import webdriver
-from base_page import Buyme_site
+from base_page import buyme_site
 import json
 import allure
 def json_setup(self):
@@ -20,20 +20,20 @@ class basePage(unittest.TestCase):
         self.driver.get(data['url'])
     def test_sign_in(self):
         try:
-            Buyme_site.sign_page(self)
-            Buyme_site.assert_name(self)
+            buyme_site.sign_page(self)
+            buyme_site.assert_name(self)
         except:
             screenshot(self)
     def test_choose_gift(self):
         try:
-            Buyme_site.choose_gift(self)
+            buyme_site.choose_gift(self)
         except:
             screenshot(self)
     def test_send_info(self):
         try:
             data =json_setup(self)
             self.driver.get(data['url2'])
-            Buyme_site.send_info(self)
+            buyme_site.send_info(self)
         except:
             screenshot(self)
     def tearDown(self):
