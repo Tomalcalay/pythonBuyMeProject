@@ -4,6 +4,7 @@ from selenium import webdriver
 from base_page import buyme_site
 import json
 import allure
+from selenium.webdriver.chrome.options import Options
 def json_setup(self):
     json_file = open('C:/Users/nadav2022/PycharmProjects/pythonBuyMeProject/json_setup.json', 'r')
     data = json.load(json_file)
@@ -14,10 +15,13 @@ def screenshot(self):
         body=self.driver.get_screenshot_as_png(),
         attachment_type=AttachmentType.PNG)
 class basePage(unittest.TestCase):
+
     def setUp(self):
         self.driver = webdriver.Chrome()
         data = json_setup(self)
         self.driver.get(data['url'])
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")
     def test_sign_in(self):
         try:
             buyme_site.sign_page(self)
